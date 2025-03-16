@@ -1,0 +1,46 @@
+{
+  "mode": "Indexed",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "exists": "true"
+        },
+        {
+          "anyOf": [
+            {
+              "field": "tags['Environment']",
+              "exists": "false"
+            },
+            {
+              "field": "tags['Version']",
+              "exists": "false"
+            },
+            {
+              "field": "tags['Department']",
+              "exists": "false"
+            },
+            {
+              "field": "tags['DataClassification']",
+              "exists": "false"
+            },
+            {
+              "field": "tags['ServiceTier']",
+              "exists": "false"
+            },
+            {
+              "field": "tags['Compliance']",
+              "exists": "false"
+            }
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
